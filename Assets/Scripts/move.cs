@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class move : MonoBehaviour
 {
+    Vector3 rot=new Vector3(0,0,0.1f);
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.transform.localRotation *= Quaternion.Euler(1f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -15,22 +17,19 @@ public class move : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(new Vector3(0,0,0.1f));
-        }
-
+            this.transform.localRotation *= Quaternion.Euler(0f, 0f, 0.05f);
+        }else
         if (Input.GetKey(KeyCode.D)) 
         {
-            transform.Rotate(new Vector3(0, 0, -0.1f));
-        }
-
+            this.transform.localRotation *= Quaternion.Euler(0f, 0f, -0.05f);
+        }else
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Rotate(new Vector3(0.1f, 0, 0));
-        }
-
+            this.transform.localRotation *= Quaternion.Euler(0.05f, 0f, 0f);
+        }else
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Rotate(new Vector3(-0.1f, 0, 0));
+            this.transform.localRotation *= Quaternion.Euler(-0.05f, 0f, 0f);
         }
     }
 }
